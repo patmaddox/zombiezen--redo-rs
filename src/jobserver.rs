@@ -1130,6 +1130,26 @@ fn parse_makeflags<S: AsRef<OsStr>>(flags: S) -> Result<Option<(RawFd, RawFd)>, 
             let s = &flags[ofs + find.len()..];
             let arg = str::from_utf8(&s[..s.iter().copied().position(|b| b == b' ').unwrap()])
                 .map_err(|e| RedoError::wrap(e, "invalid MAKEFLAGS"))?;
+
+            // GNU Make 4.3+ named pipe jobserver format: fifo:/path/to/pipe
+            if let Some(fifo_path) = arg.strip_prefix("fifo:") {
+                use std::fs::OpenOptions;
+                use std::os::fd::IntoRawFd;
+                // Open the named pipe for both reading and writing.
+                // O_RDWR avoids blocking that would occur with O_RDONLY.
+                let fd = OpenOptions::new()
+                    .read(true)
+                    .write(true)
+                    .open(fifo_path)
+                    .map_err(|e| {
+                        RedoError::wrap(e, format!("cannot open jobserver fifo {}", fifo_path))
+                    })?
+                    .into_raw_fd();
+                // Use the same fd for both read and write
+                return Ok(Some((fd, fd)));
+            }
+
+            // Traditional pipe jobserver format: R,W (two file descriptors)
             let comma = match arg.find(',') {
                 Some(i) => i,
                 None => return Err(RedoError::new(format!("invalid --jobserver-auth: {}", arg))),
@@ -1230,6 +1250,25 @@ mod tests {
             parse_makeflags(" -j --jobserver-auth=1,2 --jobserver-fds=3,4").unwrap(),
             Some((1, 2)),
         );
+    }
+
+    #[test]
+    fn parse_makeflags_fifo() {
+        let dir = tempfile::tempdir().unwrap();
+        let fifo_path = dir.path().join("jobserver");
+        nix::unistd::mkfifo(&fifo_path, nix::sys::stat::Mode::S_IRWXU).unwrap();
+
+        let flags = format!(
+            "--jobserver-auth=fifo:{}",
+            fifo_path.to_str().unwrap()
+        );
+        let result = parse_makeflags(&flags).unwrap();
+        assert!(result.is_some(), "expected Some((fd, fd))");
+        let (r, w) = result.unwrap();
+        assert_eq!(r, w, "fifo should use same fd for read and write");
+        assert!(r >= 0, "fd should be non-negative");
+        // Clean up the fd
+        let _ = unistd::close(r);
     }
 
     #[derive(Debug)]
