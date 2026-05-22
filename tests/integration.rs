@@ -15,6 +15,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 use std::env;
+use std::fs;
 use std::path::Path;
 use std::process::Command;
 
@@ -22,6 +23,9 @@ use std::process::Command;
 fn integration_test() {
     let crate_dir = Path::new(env!("CARGO_MANIFEST_DIR"));
     let redo_path = Path::new(env!("CARGO_BIN_EXE_redo"));
+
+    // Remove stale redo state and generated files so the test starts clean.
+    clean_redo_state(crate_dir);
 
     let status = clear_redo_env(&mut Command::new(redo_path))
         .current_dir(crate_dir)
@@ -55,4 +59,43 @@ fn clear_redo_env(cmd: &mut Command) -> &mut Command {
         }
     }
     cmd
+}
+
+/// Remove `.redo` directories and known generated files so the
+/// integration test can start from a clean slate.
+fn clean_redo_state(crate_dir: &Path) {
+    // Remove all .redo database directories.
+    remove_redo_dirs(crate_dir);
+
+    // Remove generated files that redo produces and that the test
+    // suite creates as side effects.
+    let generated = &[
+        "redo/py",
+        "redo/sh",
+        "redo/whichpython",
+        "t/flush-cache",
+        "t/100-args/passfail",
+        "t/100-args/pleasefail",
+        "t/101-atime/atime2",
+    ];
+    for f in generated {
+        let _ = fs::remove_file(crate_dir.join(f));
+    }
+}
+
+fn remove_redo_dirs(dir: &Path) {
+    let entries = match fs::read_dir(dir) {
+        Ok(e) => e,
+        Err(_) => return,
+    };
+    for entry in entries.flatten() {
+        let path = entry.path();
+        if path.is_dir() {
+            if entry.file_name() == ".redo" {
+                let _ = fs::remove_dir_all(&path);
+            } else if entry.file_name() != "target" {
+                remove_redo_dirs(&path);
+            }
+        }
+    }
 }
