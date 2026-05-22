@@ -1,3 +1,4 @@
+#!/bin/sh -e
 # shellcheck shell=sh
 # shellcheck disable=SC2164
 #

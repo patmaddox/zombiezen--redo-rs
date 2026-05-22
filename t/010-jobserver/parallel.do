@@ -1,3 +1,4 @@
+#!/bin/sh -e
 # We should be running in parallel with a jobserver shared with second.do.
 # Give second.do some time to start but not finish.
 sleep 1

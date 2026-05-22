@@ -1,3 +1,4 @@
+#!/bin/sh -e
 redo-ifchange flush-cache
 
 # tests that "set -e" works (.do scripts always run with -e set by default)

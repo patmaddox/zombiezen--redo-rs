@@ -1,3 +1,4 @@
+#!/bin/sh -e
 printf x >>a.ran
 rm -f dir/$2.1 $2.2 $2.3 $2.final
 echo foo >$2.final

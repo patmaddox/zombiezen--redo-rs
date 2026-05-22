@@ -1,3 +1,4 @@
+#!/bin/sh -e
 # Test that redo can handle a script whose path contains non-ASCII characters.
 # Note: the test directory is intentionally *not* a normalized unicode
 # string, ie. filesystems like macOS will convert it to a different string

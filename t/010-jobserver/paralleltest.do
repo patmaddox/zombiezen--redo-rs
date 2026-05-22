@@ -1,3 +1,4 @@
+#!/bin/sh -e
 # Test that -j2 really gives us parallel builds with their own tokens.
 # (It's hard to test for sure that we have our own tokens, but if we're
 # sharing with other tests, we can't be sure that parallel2 will run while

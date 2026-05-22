@@ -1,3 +1,4 @@
+#!/bin/sh -e
 if [ -e "$1.a" -o -e "default${1#$2}.a" ]; then
 	redo-ifchange "$1.a"
 	echo a-to-b

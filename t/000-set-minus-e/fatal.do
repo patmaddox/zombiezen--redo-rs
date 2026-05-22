@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -f log
 echo ok >>log
 this-should-cause-a-fatal-error

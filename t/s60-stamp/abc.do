@@ -1,3 +1,4 @@
+#!/bin/sh -e
 redo-ifchange ab c
 echo "doing abc" >&2
 echo abc >$3

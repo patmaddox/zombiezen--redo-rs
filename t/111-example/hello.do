@@ -1,3 +1,4 @@
+#!/bin/sh -e
 DEPS="main.o
 mystr.o"
 redo-ifchange $DEPS

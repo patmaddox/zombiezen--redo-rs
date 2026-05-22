@@ -1,3 +1,4 @@
+#!/bin/sh -e
 exec >$3
 cat <<-EOF
 	OUT="\$1"

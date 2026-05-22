@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -f bob stampy usestamp usestamp2 stampy.log usestamp.log usestamp2.log
 echo one >inp
 

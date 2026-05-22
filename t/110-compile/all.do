@@ -1,3 +1,4 @@
+#!/bin/sh -e
 if type cc >/dev/null 2>&1; then
 	redo-ifchange hello yellow bellow
 else

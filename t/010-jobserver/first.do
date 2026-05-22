@@ -1,3 +1,4 @@
+#!/bin/sh -e
 # in case we're (erroneously) running in parallel, give second.do some
 # time to start but not finish.
 echo 'first sleep' >&2

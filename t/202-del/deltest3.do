@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -rf destruct
 mkdir destruct
 cd destruct

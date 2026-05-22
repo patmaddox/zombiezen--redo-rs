@@ -1,3 +1,4 @@
+#!/bin/sh -e
 redo-ifchange $1.b
 echo b-to-cc
 cat $1.b

@@ -1,3 +1,4 @@
+#!/bin/sh -e
 exec >&2
 redo-ifchange whichmake
 

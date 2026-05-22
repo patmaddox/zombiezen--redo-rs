@@ -1,3 +1,4 @@
+#!/bin/sh -e
 redo-ifchange c
 echo default-rule
 cat c

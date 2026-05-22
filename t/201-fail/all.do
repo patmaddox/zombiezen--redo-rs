@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -f this-doesnt-exist
 ! redo this-doesnt-exist >/dev/null 2>&1 || exit 32  # expected to fail
 ! redo-ifchange this-doesnt-exist >/dev/null 2>&1 || exit 33  # expected to fail

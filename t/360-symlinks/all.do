@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -f a a.ran a.final b b.ran *.[123] dir/*.[123]
 mkdir -p dir
 

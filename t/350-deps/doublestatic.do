@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -f static.log
 
 redo static1 static2

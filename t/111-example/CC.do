@@ -1,3 +1,4 @@
+#!/bin/sh -e
 redo-ifchange config.sh
 . ./config.sh
 exec >$3

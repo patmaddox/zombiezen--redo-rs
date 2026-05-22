@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -f $1.log
 exec >$1.log
 

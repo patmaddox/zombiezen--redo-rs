@@ -1,3 +1,4 @@
+#!/bin/sh -e
 exec >&2
 for py in intentionally-missing python python3 python2 python2.7; do
 	echo "Trying: $py"

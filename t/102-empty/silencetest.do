@@ -1,3 +1,4 @@
+#!/bin/sh -e
 # This may have been leftover from a previous run, when switching
 # between "real" redo and minimal/do, so clean it up.
 rm -f silence

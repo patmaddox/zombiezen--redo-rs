@@ -1,3 +1,4 @@
+#!/bin/sh -e
 exec >&2
 
 a=$(cd fakesub && redo-whichdo ../a/b/x.y.z)

@@ -1,3 +1,4 @@
+#!/bin/sh -e
 redo "space file"
 F1="$(cat "space 2")"
 redo "../space dir/space file"

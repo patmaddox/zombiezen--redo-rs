@@ -1,3 +1,4 @@
+#!/bin/sh -e
 . ../skip-if-minimal-do.sh
 
 rm -f pleasefail

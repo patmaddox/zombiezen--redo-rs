@@ -1,3 +1,4 @@
+#!/bin/sh -e
 exec >&2
 . ../skip-if-minimal-do.sh
 

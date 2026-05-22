@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -f *.out *.log
 
 ../../flush-cache

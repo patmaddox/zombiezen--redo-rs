@@ -1,3 +1,4 @@
+#!/bin/sh -e
 exec >&2
 rm -f want silent.out bork bork.log sub sub.log sub.warn
 

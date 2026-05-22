@@ -1,3 +1,4 @@
+#!/bin/sh -e
 # We put the -j options at this toplevel to detect an earlier bug
 # where the sub-jobserver wasn't inherited by sub-sub-processes, which
 # accidentally reverted to the parent jobserver instead.

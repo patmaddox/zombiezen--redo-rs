@@ -1,3 +1,4 @@
+#!/bin/sh -e
 # shellcheck shell=sh
 #
 # Copyright 2021 Ross Light

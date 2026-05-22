@@ -1,3 +1,4 @@
+#!/bin/sh -e
 set +e
 export SHELLTEST_QUIET=1
 cd ..

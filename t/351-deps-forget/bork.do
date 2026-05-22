@@ -1,3 +1,4 @@
+#!/bin/sh -e
 printf x >>$1.log
 redo-always
 

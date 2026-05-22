@@ -1,3 +1,4 @@
+#!/bin/sh -e
 redo-ifchange whichpython
 read py <whichpython
 cat >$3 <<-EOF

@@ -1,3 +1,4 @@
+#!/bin/sh -e
 if type gmake >/dev/null 2>/dev/null; then
 	make=gmake
 elif type make >/dev/null 2>/dev/null; then

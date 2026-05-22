@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -rf sub.tmp sub2.tmp sub3.tmp
 
 redo-ifchange sub.tmp/test.txt

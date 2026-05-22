@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -f makedir.log
 redo makedir
 touch makedir/outfile

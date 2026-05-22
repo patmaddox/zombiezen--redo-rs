@@ -1,3 +1,4 @@
+#!/bin/sh -e
 exec >$3
 cat <<-EOF
 	cc -Wall -o /dev/fd/1 -c "\$1"

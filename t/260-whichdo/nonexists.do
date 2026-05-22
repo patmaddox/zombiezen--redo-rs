@@ -1,3 +1,4 @@
+#!/bin/sh -e
 exec >&2
 
 # Testing the search path for non-existent do files is a little tricky.

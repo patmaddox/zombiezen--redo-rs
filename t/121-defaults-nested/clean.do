@@ -1,3 +1,4 @@
+#!/bin/sh -e
 exec >&2
 find . -name '*~' -exec rm -f {} \;
 rm -f a/b/file a/b/file.x.y.z a/b/file.y.z a/b/file.z \

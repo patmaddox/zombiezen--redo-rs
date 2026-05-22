@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -f *.n[012] countall
 
 . ./check-1.sh

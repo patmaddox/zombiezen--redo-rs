@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -f genfile2 genfile2.do genfile.log
 
 echo echo hello >genfile2.do

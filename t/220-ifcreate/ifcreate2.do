@@ -1,3 +1,4 @@
+#!/bin/sh -e
 cd ..
 if [ -e 220-ifcreate/ifcreate2.dep ]; then
 	redo-ifchange 220-ifcreate/ifcreate2.dep

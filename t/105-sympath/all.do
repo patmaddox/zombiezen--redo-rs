@@ -1,3 +1,4 @@
+#!/bin/sh -e
 redo-ifchange ../flush-cache
 rm -f src
 : >src

@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -f $1.start $1.end
 echo 'second start' >&2
 : >$1.start

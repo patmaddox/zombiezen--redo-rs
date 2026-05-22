@@ -1,3 +1,4 @@
+#!/bin/sh -e
 exec >&2
 
 a=$(cd fakesub2 && redo-whichdo d/snork)

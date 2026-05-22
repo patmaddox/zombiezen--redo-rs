@@ -1,3 +1,4 @@
+#!/bin/sh -e
 if [ -e ifcreate1.dep ]; then
 	redo-ifchange ifcreate1.dep
 else

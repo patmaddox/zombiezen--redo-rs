@@ -1,3 +1,4 @@
+#!/bin/sh -e
 exec >&2
 rm -f x pid
 pid=$$

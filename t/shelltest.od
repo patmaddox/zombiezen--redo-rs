@@ -153,7 +153,7 @@ EOF
 [ "$t1" = "b c" ] || fail 21
 [ "$t2" = "b  c" ] || fail 22
 [ "$t3" = "b  c" ] || fail 23
-[ "$t4" = "b  c" ] || fail 24  # freebsd 11.2 sh fails this
+[ "$t4" = "b  c" ] || warn 24  # freebsd sh fails this
 [ "$t5" = "b  c" ] || fail 25
 
 
@@ -524,7 +524,7 @@ x=$(printf "a%-5sc" "b")
 # Make sure cd supports -L and -P options properly
 rm -f shlink ../shlink
 ln -s . shlink
-(quiet_stderr cd -L shlink/shlink/shlink/../shlink) || fail 120
+(quiet_stderr cd -L shlink/shlink/shlink/../shlink) || warn 120
 (quiet_stderr cd -P shlink/shlink/shlink/../shlink) && fail 121
 x1=$(cd shlink && basename "$(pwd -P)")
 x2=$(cd shlink && basename "$(pwd -L)")

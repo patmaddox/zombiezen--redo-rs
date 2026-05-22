@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -f log dir1/log dir1/stinky
 touch t1.do
 ../../flush-cache

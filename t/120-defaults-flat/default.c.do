@@ -1,3 +1,4 @@
+#!/bin/sh -e
 redo-ifchange $1.c
 echo c-to-c
 cat $1.c

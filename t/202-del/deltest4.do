@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -rf x
 redo x/a.spam2
 [ "$(cat x/a.spam2)" = "redir" ] || exit 11

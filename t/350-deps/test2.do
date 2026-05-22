@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -f t2.count
 redo t2
 redo t2

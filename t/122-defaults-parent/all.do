@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -f x/shouldfail
 
 log=$PWD/$1.log

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import subprocess, sys, os
 
 # subprocess.call(close_fds=True) is unfortunately not a good idea,

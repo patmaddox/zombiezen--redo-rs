@@ -1,3 +1,4 @@
+#!/bin/sh -e
 # shellcheck shell=sh
 exec >&2
 redo-always

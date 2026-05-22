@@ -1,3 +1,4 @@
+#!/bin/sh -e
 read pid <../../pid
 
 # Test that log retrieval works correctly when run from a different base dir.

@@ -1,3 +1,4 @@
+#!/bin/sh -e
 rm -f exists ifcreate[12] ifcreate[12].log ifcreate[12].dep
 . ../skip-if-minimal-do.sh
 touch exists

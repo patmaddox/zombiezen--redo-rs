@@ -1,3 +1,4 @@
+#!/bin/sh -e
 read pid <pid
 echo "$pid x stdout"
 echo "$pid x stderr" >&2

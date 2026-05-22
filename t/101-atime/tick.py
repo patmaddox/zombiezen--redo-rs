@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import time
 t2 = int(time.time()) + 1.0
 while 1:
